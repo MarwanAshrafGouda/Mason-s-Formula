@@ -1,8 +1,8 @@
 public class Branch {
 
-    private int startingNode;
-    private int endNode;
-    private int gain;
+    private final int startingNode;
+    private final int endNode;
+    private final int gain;
 
     public Branch(int startingNode, int endNode, int gain) {
         this.startingNode = startingNode;

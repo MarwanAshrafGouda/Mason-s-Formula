@@ -10,9 +10,9 @@ public interface IProcessor {
 
     ArrayList<ArrayList<Integer>> getLoops();
 
-    ArrayList<ArrayList<Integer>> getNonTouchingLoops(int n); //where n is the number of non-touching loops
+    ArrayList<ArrayList<ArrayList<Integer>>> getNonTouchingLoops();
 
     ArrayList<Integer> getDeltas();
 
-    int getGain();
+    double getGain();
 }

@@ -5,9 +5,9 @@ public class Processor implements IProcessor {
 
     private int nodeCount;
     private ArrayList<Branch> branches;
-    private IPathFinder pathFinder = new PathFinder();
-    private ArrayList<Branch>[] signalFlowGraph = new ArrayList[nodeCount];
-    private IGraphBuilder graphBuilder = new GraphBuilder();
+    private final IPathFinder pathFinder = new PathFinder();
+    private final IGraphBuilder graphBuilder = new GraphBuilder();
+    ArrayList<Branch>[] signalFlowGraph = new ArrayList[nodeCount];
 
     public static void main(String[] args) {
         Processor processor = new Processor();
@@ -52,7 +52,7 @@ public class Processor implements IProcessor {
     }
 
     @Override
-    public ArrayList<ArrayList<Integer>> getNonTouchingLoops(int n) {
+    public ArrayList<ArrayList<ArrayList<Integer>>> getNonTouchingLoops() {
         return null;
     }
 
@@ -62,7 +62,7 @@ public class Processor implements IProcessor {
     }
 
     @Override
-    public int getGain() {
-        return 0;
+    public double getGain() {
+        return new GainCalculator().getGain(getForwardPaths(), getLoops(), signalFlowGraph);
     }
 }

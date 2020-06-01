@@ -3,10 +3,10 @@ import java.util.Stack;
 
 public class PathFinder implements IPathFinder {
 
-    private ArrayList<ArrayList<Integer>> forwardPaths = new ArrayList<>();
-    private ArrayList<ArrayList<Integer>> loops = new ArrayList<>();
-    private Stack<Integer> dfsStack = new Stack<>();
-    private Stack<ArrayList<Integer>> pathStack = new Stack<>();
+    private final ArrayList<ArrayList<Integer>> forwardPaths = new ArrayList<>();
+    private final ArrayList<ArrayList<Integer>> loops = new ArrayList<>();
+    private final Stack<Integer> dfsStack = new Stack<>();
+    private final Stack<ArrayList<Integer>> pathStack = new Stack<>();
     private ArrayList<Branch>[] signalFlowGraph;
 
     @Override
