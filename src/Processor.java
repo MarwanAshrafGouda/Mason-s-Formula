@@ -7,6 +7,7 @@ public class Processor implements IProcessor {
     private ArrayList<Branch> branches;
     private final IPathFinder pathFinder = new PathFinder();
     private final IGraphBuilder graphBuilder = new GraphBuilder();
+    private final IGainCalculator gainCalculator = new GainCalculator();
     ArrayList<Branch>[] signalFlowGraph = new ArrayList[nodeCount];
 
     public static void main(String[] args) {
@@ -23,6 +24,7 @@ public class Processor implements IProcessor {
             branches.add(new Branch(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2])));
         }
         processor.setBranches(branches);
+        System.out.println(processor.getGain());
     }
 
     @Override
@@ -53,16 +55,12 @@ public class Processor implements IProcessor {
 
     @Override
     public ArrayList<ArrayList<ArrayList<Integer>>> getNonTouchingLoops() {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Integer> getDeltas() {
-        return null;
+        return gainCalculator.getNonTouchingLoops(getLoops());
     }
 
     @Override
     public double getGain() {
-        return new GainCalculator().getGain(getForwardPaths(), getLoops(), signalFlowGraph);
+        new GainCalculator().getNonTouchingLoops(getLoops());
+        return gainCalculator.getGain(getForwardPaths(), getLoops(), signalFlowGraph);
     }
 }

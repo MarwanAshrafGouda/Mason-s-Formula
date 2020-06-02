@@ -8,7 +8,7 @@ public interface IGainCalculator {
 
     ArrayList<Double> getLoopGain(ArrayList<ArrayList<Integer>> loops, ArrayList<Branch>[] signalFlowGraph);
 
-    ArrayList<Integer> getDeltas();
+    double getDelta(ArrayList<ArrayList<Integer>> loops, ArrayList<ArrayList<ArrayList<Integer>>> nonTouchingLoops);
 
     double getGain(ArrayList<ArrayList<Integer>> forwardPaths, ArrayList<ArrayList<Integer>> loops, ArrayList<Branch>[] signalFlowGraph);
 }

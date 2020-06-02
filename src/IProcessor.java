@@ -12,7 +12,5 @@ public interface IProcessor {
 
     ArrayList<ArrayList<ArrayList<Integer>>> getNonTouchingLoops();
 
-    ArrayList<Integer> getDeltas();
-
     double getGain();
 }

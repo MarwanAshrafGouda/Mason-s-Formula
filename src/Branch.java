@@ -2,7 +2,7 @@ public class Branch {
 
     private final int startingNode;
     private final int endNode;
-    private final int gain;
+    private final double gain;
 
     public Branch(int startingNode, int endNode, int gain) {
         this.startingNode = startingNode;
@@ -18,7 +18,7 @@ public class Branch {
         return endNode;
     }
 
-    public int getGain() {
+    public double getGain() {
         return gain;
     }
 }

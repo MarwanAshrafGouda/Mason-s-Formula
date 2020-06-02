@@ -52,7 +52,7 @@ public class PathFinder implements IPathFinder {
                     dfsStack.push(branch.getEndNode());
             return;
         }
-        if (loopStartIndex > 0) {
+        if (loopStartIndex >= 0) {
             loop.subList(0, loopStartIndex).clear();
             if (!isDuplicate(loop))
                 loops.add(loop);
