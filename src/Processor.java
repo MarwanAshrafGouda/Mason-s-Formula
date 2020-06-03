@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Processor implements IProcessor {
 
@@ -10,26 +9,13 @@ public class Processor implements IProcessor {
     private final IGainCalculator gainCalculator = new GainCalculator();
     ArrayList<Branch>[] signalFlowGraph = new ArrayList[nodeCount];
 
-    public static void main(String[] args) {
-        Processor processor = new Processor();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Node Count");
-        processor.setNodeCount(Integer.parseInt(scanner.nextLine()));
-        ArrayList<Branch> branches = new ArrayList<>();
-        while (true) {
-            String nextLine = scanner.nextLine();
-            if (nextLine.equals("-1"))
-                break;
-            String[] parts = nextLine.split("\\s");
-            branches.add(new Branch(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2])));
-        }
-        processor.setBranches(branches);
-        System.out.println(processor.getGain());
-    }
-
     @Override
     public void setNodeCount(int nodeCount) {
         this.nodeCount = nodeCount;
+    }
+
+    public int getNodeCount() {
+        return nodeCount;
     }
 
     @Override
